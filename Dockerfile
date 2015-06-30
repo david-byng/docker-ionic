@@ -6,14 +6,16 @@ MAINTAINER david [at] byng [dot] co
 # Install basics 
 RUN apt-get update &&  \
     apt-get install -y git wget curl && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 
 RUN apt-get update &&  \
     apt-get install -y nodejs nodejs-legacy build-essential && \
     ln -s /usr/bin/nodejs /usr/local/bin/node && \ 
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 # Install npm packages
